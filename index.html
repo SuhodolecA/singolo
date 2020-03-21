@@ -14,12 +14,12 @@
 					<section class="header-logo"><a href="#">SINGOLO<span class="logo-star">&#10033;</span></a></section>
 					<section class="header-navigation">
 						<nav class="top-nav">     
-							<ul class="top-navigation">
-								<li><a href="#">HOME</a></li>
-								<li><a href="#">SERVICES</a></li>
-								<li><a href="#">PORTFOLIO</a></li>
-								<li><a href="#">ABOUT</a></li>
-								<li><a href="#">CONTACT</a></li>
+							<ul class="top-navigation" id="top-menu">
+								<li><a href="#" class="active-top-menu">HOME</a></li>
+								<li><a href="#services">SERVICES</a></li>
+								<li><a href="#portfolio">PORTFOLIO</a></li>
+								<li><a href="#about">ABOUT</a></li>
+								<li><a href="#contact">CONTACT</a></li>
 							</ul>
 						</nav>
 						<div class="circles circle-1"></div>
@@ -31,23 +31,34 @@
 			</header>
 			<!-- /////// -->
 			<!-- Main singolo1-->
-			<main class="main">
+			<main class="main" id="home">
 				<div class="conteiner">
-					<section class="main-leftarrow">
+					<section class="main-leftarrow" id="prev">
 						<img src="assets/img/left_arrow_r.png" alt="arrow">
 					</section>
-					<section class="main-image">
-						<img src="assets/img/iPhone Vertical.png" alt="iphone" class="iphone-vertical">
-						<img src="assets/img/iPhone Horizontal.png" alt="iphone" class="iphone-horizontal">
-					</section>
-					<section class="main-rightarrow">
-						<img src="assets/img/right_arrow_r.png" alt="arrow">
+					<div class="sider-conteiner">
+						<section class="slide_2" id="prevslide">
+							<img src="assets/img/Slide-2.jpg" alt="Slide-2">
+						</section>
+						<section class="main-image">
+							<img src="assets/img/iPhone Vertical.png" alt="iphone" class="iphone-vertical" onclick="changeBG('vertical-bg')">
+							<img src="assets/img/iPhone Horizontal.png" alt="iphone" class="iphone-horizontal" onclick="changeBG('horizontal-bg')">
+							<div class="black-bg vertical" id="vertical-bg"></div>
+							<div class="black-bg horizontal" id="horizontal-bg"></div>
+							</section>
+						<section class="slide_2" id="nextslide">
+							<img src="assets/img/Slide-2.jpg" alt="Slide-2">
+						</section>
+					</div>
+					
+					<section class="main-rightarrow" id="next">
+						<img src="assets/img/right_arrow_r.png" alt="arrow" >
 					</section>
 				</div>
 			</main>
 			<!-- ////// -->
 			<!-- Footer singolo1-->
-			<footer class="footer">
+			<footer class="footer" id="services">
 				<div class="conteiner">
 					<section class="footer-description">
 						<h1>Our Services</h1>
@@ -118,7 +129,7 @@
 			</footer>
 			<!-- ///// -->
 			<!-- Singolo2 -->
-			<section class="portfolio">
+			<section class="portfolio" id="portfolio">
 				<div class="conteiner">
 					<div class="portfolio-descrition">
 						<h2>Portfolio</h2>
@@ -126,13 +137,13 @@
 							Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
 						</p>
 					</div>
-					<div class="portfolio-buttons">
-						<button class="portfolio-button all">All</button>
-						<button class="portfolio-button webdesign">Web Design</button>
-						<button class="portfolio-button graphicdesign">Graphic Design</button>
-						<button class="portfolio-button artwork">Artwork</button>
+					<div class="portfolio-buttons" id="portfolio-btn">
+						<button class="portfolio-button all active-portfolio-btn" onclick="mixImg()">All</button>
+						<button class="portfolio-button webdesign" onclick="mixImg()">Web Design</button>
+						<button class="portfolio-button graphicdesign" onclick="mixImg()">Graphic Design</button>
+						<button class="portfolio-button artwork" onclick="mixImg()">Artwork</button>
 					</div>
-					<div class="portfolio-images">
+					<div class="portfolio-images" id="portfolio-img">
 						<img src="assets/img/img-1.jpg" alt="img">
 						<img src="assets/img/img-2.jpg" alt="img">
 						<img src="assets/img/img-3.jpg" alt="img">
@@ -148,7 +159,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="aboutus">
+			<section class="aboutus" id="about">
 				<div class="conteiner">
 					<section class="aboutus-descrition">
 						<h2>About Us</h2>
@@ -201,7 +212,7 @@
 			</section>
 			<!-- ////Singlol2 -->
 			<!-- Singolo3 -->
-			<section class="GetAQuote">
+			<section class="GetAQuote" id="contact">
 			<div class="conteiner">	
 				<div class="GetAQuote-describe">
 					<h2>Get a Quote</h2>
@@ -211,13 +222,22 @@
 				</div>
 				<div class="GetAQuote-formAndContacts">
 					<div class="form">
-						<form action="URL" id="contForm">
-							<input type="text" placeholder="Name" required form="contForm">
+						<form id="contForm">
+							<input type="text" placeholder="Name" required form="contForm" >
 							<input type="email" placeholder="Email" form="contForm" required>
-							<input type="text" placeholder="Subject" form="contForm">
-							<textarea  placeholder="Describe your project in detail..." form="contForm"></textarea>
-							<button type="submit" class="submit-btn" form="contForm">Submit</button>
+							<input type="text" placeholder="Subject" form="contForm" id="subject">
+							<textarea  placeholder="Describe your project in detail..." form="contForm" id="description"></textarea>
+							<button type="button" class="submit-btn" form="contForm" id="btn">Submit</button>
 						</form>
+						<div id="message-block" class="hidden">
+							<div id="message">
+								<p><span>The letter was sent</span></p>
+								<p><span id="message-subj"></span></p>
+								<p><span id="message-desc"></span></p>
+								<br>
+								<button id="close-btn">OK</button>
+							</div>
+						</div>
 					</div>
 					<div class="contacts">
 						<h4>Contact Information</h4>
@@ -257,5 +277,6 @@
 		</footer>
 			<!-- ////Singlol3 -->
 	</div>
+	<script src="js/script.js"></script>
 </body>
 </html>
